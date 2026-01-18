@@ -434,3 +434,45 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+// ===== CART =====
+const cart = [];
+
+const cartCount = document.getElementById('cartCount');
+const cartItems = document.getElementById('cartItems');
+const cartTotal = document.getElementById('cartTotal');
+const cartModal = document.getElementById('cartModal');
+
+document.querySelectorAll('.add-to-cart').forEach(btn => {
+    btn.addEventListener('click', () => {
+        cart.push({
+            title: btn.dataset.title,
+            price: Number(btn.dataset.price)
+        });
+        updateCart();
+    });
+});
+
+function updateCart() {
+    cartCount.textContent = cart.length;
+    cartItems.innerHTML = '';
+    let total = 0;
+
+    cart.forEach(item => {
+        total += item.price;
+        cartItems.innerHTML += `
+            <li style="display:flex;justify-content:space-between;margin:8px 0">
+                <span>${item.title}</span>
+                <b>${item.price} ₽</b>
+            </li>`;
+    });
+
+    cartTotal.textContent = total;
+}
+
+document.getElementById('openCart').onclick = () => {
+    cartModal.style.display = 'flex';
+};
+
+document.getElementById('closeCart').onclick = () => {
+    cartModal.style.display = 'none';
+};
