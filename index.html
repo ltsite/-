@@ -2,217 +2,183 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>CODEACADEMY</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <title>CODEACADEMY</title>
 
-<style>
-body {
-    margin: 0;
-    font-family: 'Roboto Mono', monospace;
-    background: #0b0f1a;
-    color: #fff;
-}
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    padding: 20px;
-    background: #11162a;
-}
-.nav-menu {
-    display: flex;
-    gap: 20px;
-    list-style: none;
-}
-.nav-menu a { color: #fff; text-decoration: none; }
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500;700&display=swap" rel="stylesheet">
 
-.cart-icon {
-    cursor: pointer;
-    font-size: 18px;
-}
+    <link rel="stylesheet" href="styles.css">
 
-.hero {
-    padding: 80px 20px;
-    text-align: center;
-}
-.neon-text { color: #00f0ff; }
-
-.courses {
-    padding: 50px 20px;
-}
-.courses-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
-    gap: 20px;
-}
-.course-card {
-    background: #151b36;
-    padding: 20px;
-    border-radius: 12px;
-}
-.course-price {
-    font-size: 20px;
-    margin: 10px 0;
-    color: #00f0ff;
-}
-.btn-add-cart, .cta-button {
-    width: 100%;
-    padding: 12px;
-    border: none;
-    background: #00f0ff;
-    color: #000;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: bold;
-}
-
-.modal {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,.8);
-    align-items: center;
-    justify-content: center;
-    z-index: 999;
-}
-.modal-content {
-    background: #151b36;
-    padding: 25px;
-    border-radius: 12px;
-    width: 90%;
-    max-width: 400px;
-}
-.close {
-    float: right;
-    cursor: pointer;
-    font-size: 22px;
-}
-
-#cartItems {
-    list-style: none;
-    padding: 0;
-}
-#cartItems li {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
-}
-
-.cart-total {
-    font-size: 20px;
-    margin: 15px 0;
-}
-
-.qr-box {
-    text-align: center;
-}
-.qr-box img {
-    max-width: 200px;
-}
-</style>
+    <style>
+        .cart-btn {
+            cursor: pointer;
+            font-size: 18px;
+            color: #fff;
+        }
+        .cart-btn span {
+            color: #00f0ff;
+            font-weight: bold;
+        }
+        #cartItems {
+            list-style: none;
+            padding: 0;
+        }
+        #cartItems li {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        .cart-total {
+            margin: 15px 0;
+            font-size: 18px;
+        }
+    </style>
 </head>
 
 <body>
 
-<header class="navbar">
-    <div>CODE<span class="neon-text">ACADEMY</span></div>
-    <ul class="nav-menu">
-        <li><a href="#">Главная</a></li>
-        <li><a href="#courses">Курсы</a></li>
-    </ul>
-    <div class="cart-icon" id="openCart">
-        🛒 <span id="cartCount">0</span>
-    </div>
+<header class="header">
+    <nav class="navbar">
+        <div class="nav-brand">CODE<span class="neon-text">ACADEMY</span></div>
+
+        <ul class="nav-menu">
+            <li><a href="#home">Главная</a></li>
+            <li><a href="#courses">Курсы</a></li>
+            <li><a href="#contact">Контакты</a></li>
+        </ul>
+
+        <div class="cart-btn" id="openCart">
+            🛒 <span id="cartCount">0</span>
+        </div>
+    </nav>
 </header>
 
-<section class="hero">
-    <h1>Освой <span class="neon-text">программирование</span></h1>
-    <p>Онлайн-курсы нового поколения</p>
+<main>
+
+<section id="home" class="hero">
+    <div class="hero-content">
+        <h1>ОСВОИ <span class="neon-text">ПРОГРАММИРОВАНИЕ</span></h1>
+        <p>Онлайн-курсы нового поколения</p>
+    </div>
 </section>
 
 <section id="courses" class="courses">
-    <h2>Курсы</h2>
+    <h2 class="section-title">Наши <span class="neon-text">Курсы</span></h2>
+
     <div class="courses-grid">
 
         <div class="course-card">
             <h3>Ввод в программирование</h3>
             <div class="course-price">399 ₽</div>
-            <button class="btn-add-cart" data-title="Ввод в программирование" data-price="399">В корзину</button>
+            <button class="btn-details add-to-cart" data-title="Ввод в программирование" data-price="399">
+                В корзину
+            </button>
         </div>
 
         <div class="course-card">
             <h3>Python с нуля</h3>
             <div class="course-price">799 ₽</div>
-            <button class="btn-add-cart" data-title="Python с нуля" data-price="799">В корзину</button>
+            <button class="btn-details add-to-cart" data-title="Python с нуля" data-price="799">
+                В корзину
+            </button>
         </div>
 
         <div class="course-card">
-            <h3>JavaScript</h3>
+            <h3>JavaScript с нуля</h3>
             <div class="course-price">899 ₽</div>
-            <button class="btn-add-cart" data-title="JavaScript" data-price="899">В корзину</button>
+            <button class="btn-details add-to-cart" data-title="JavaScript с нуля" data-price="899">
+                В корзину
+            </button>
         </div>
 
     </div>
 </section>
 
-<!-- Корзина -->
-<div class="modal" id="cartModal">
+<section id="contact" class="contact">
+    <h2 class="section-title">Контакты</h2>
+    <p>Telegram: <a href="https://t.me/muradsoq" target="_blank">@muradsoq</a></p>
+</section>
+
+</main>
+
+<!-- КОРЗИНА -->
+<div id="cartModal" class="modal">
     <div class="modal-content">
         <span class="close" id="closeCart">&times;</span>
-        <h2>🛒 Корзина</h2>
+        <h2>Корзина</h2>
+
         <ul id="cartItems"></ul>
-        <div class="cart-total">Итого: <span id="cartTotal">0</span> ₽</div>
+
+        <div class="cart-total">
+            Итого: <span id="cartTotal">0</span> ₽
+        </div>
+
         <button class="cta-button" id="payBtn">Оплатить</button>
     </div>
 </div>
 
-<!-- Оплата -->
-<div class="modal" id="payModal">
-    <div class="modal-content qr-box">
+<!-- ОПЛАТА -->
+<div id="payModal" class="modal">
+    <div class="modal-content" style="text-align:center">
         <span class="close" id="closePay">&times;</span>
         <h2>Оплата</h2>
-        <p>Отсканируй QR или нажми на него</p>
+
         <a href="https://t.me/muradsoq" target="_blank">
-            <img src="qr-code-muradsoq.png" alt="QR">
+            <img src="qr-code-muradsoq.png" style="max-width:220px">
         </a>
-        <p style="margin-top:10px;color:#aaa;">После оплаты напиши в Telegram</p>
+
+        <p>Отсканируй QR или нажми на него</p>
+        <p style="color:#aaa">После оплаты напиши в Telegram</p>
     </div>
 </div>
 
 <script>
-let cart = [];
+const cart = [];
 const cartCount = document.getElementById('cartCount');
 const cartItems = document.getElementById('cartItems');
 const cartTotal = document.getElementById('cartTotal');
 
-document.querySelectorAll('.btn-add-cart').forEach(btn => {
-    btn.onclick = () => {
+document.querySelectorAll('.add-to-cart').forEach(btn => {
+    btn.addEventListener('click', () => {
         cart.push({
             title: btn.dataset.title,
             price: Number(btn.dataset.price)
         });
         updateCart();
-    };
+    });
 });
 
 function updateCart() {
     cartCount.textContent = cart.length;
     cartItems.innerHTML = '';
     let total = 0;
+
     cart.forEach(item => {
         total += item.price;
-        cartItems.innerHTML += `<li>${item.title} <b>${item.price} ₽</b></li>`;
+        cartItems.innerHTML += `<li>${item.title}<b>${item.price} ₽</b></li>`;
     });
+
     cartTotal.textContent = total;
 }
 
-openCart.onclick = () => cartModal.style.display = 'flex';
-closeCart.onclick = () => cartModal.style.display = 'none';
-payBtn.onclick = () => {
-    cartModal.style.display = 'none';
-    payModal.style.display = 'flex';
+document.getElementById('openCart').onclick = () => {
+    document.getElementById('cartModal').style.display = 'flex';
 };
-closePay.onclick = () => payModal.style.display = 'none';
+
+document.getElementById('closeCart').onclick = () => {
+    document.getElementById('cartModal').style.display = 'none';
+};
+
+document.getElementById('payBtn').onclick = () => {
+    document.getElementById('cartModal').style.display = 'none';
+    document.getElementById('payModal').style.display = 'flex';
+};
+
+document.getElementById('closePay').onclick = () => {
+    document.getElementById('payModal').style.display = 'none';
+};
 </script>
 
 </body>
