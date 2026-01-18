@@ -3,185 +3,135 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CodeAcademy</title>
+    <title>Курсы Программирования | Продвинутые IT-навыки</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <style>
-        * { box-sizing: border-box; }
-        body {
-            margin: 0;
-            font-family: Roboto, sans-serif;
-            background: #0f1220;
-            color: #fff;
-        }
-
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 40px;
-            background: #151933;
-        }
-
-        nav a {
-            margin-right: 20px;
-            color: #fff;
-            text-decoration: none;
-        }
-
-        .cart-icon {
-            cursor: pointer;
-            font-size: 18px;
-        }
-
-        main {
-            padding: 40px;
-        }
-
-        .courses {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-
-        .course-card {
-            background: #1b2040;
-            padding: 20px;
-            border-radius: 12px;
-        }
-
-        .course-card h3 {
-            margin-top: 0;
-        }
-
-        .price {
-            color: #00f0ff;
-            font-size: 20px;
-            margin: 10px 0;
-        }
-
-        button {
-            width: 100%;
-            padding: 12px;
-            border: none;
-            border-radius: 8px;
-            background: #00f0ff;
-            color: #000;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        /* MODAL */
-        .modal {
-            display: none;
-            position: fixed;
-            inset: 0;
-            background: rgba(0,0,0,0.7);
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-        }
-
-        .modal-content {
-            background: #1b2040;
-            padding: 25px;
-            border-radius: 12px;
-            width: 90%;
-            max-width: 400px;
-        }
-
-        .close {
-            float: right;
-            cursor: pointer;
-            font-size: 22px;
-        }
-
-        ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        li {
-            display: flex;
-            justify-content: space-between;
-            margin: 8px 0;
-        }
-
-        .total {
-            margin: 15px 0;
-            font-size: 18px;
-        }
-
-        .tg-btn {
-            display: block;
-            text-align: center;
-            margin-top: 10px;
-            padding: 12px;
-            background: #0088cc;
-            color: #fff;
-            border-radius: 8px;
-            text-decoration: none;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
 
-<header>
-    <div><strong>CodeAcademy</strong></div>
-    <nav>
-        <a href="#">Главная</a>
-        <a href="#">Курсы</a>
+<div class="theme-switcher">
+    <label class="switch">
+        <input type="checkbox" id="theme-toggle-checkbox">
+        <span class="slider"></span>
+    </label>
+</div>
+
+<div class="content-wrapper">
+
+<header class="header">
+    <nav class="navbar">
+        <div class="nav-brand">CODE<span class="neon-text">ACADEMY</span></div>
+
+        <ul class="nav-menu">
+            <li><a href="#home">Главная</a></li>
+            <li><a href="#courses">Курсы</a></li>
+            <li><a href="#about">О нас</a></li>
+            <li><a href="#contact">Контакты</a></li>
+        </ul>
+
+        <div class="cart-icon" id="openCart">
+            🛒 <span id="cartCount">0</span>
+        </div>
+
+        <div class="hamburger">
+            <span></span><span></span><span></span>
+        </div>
     </nav>
-    <div class="cart-icon" id="openCart">
-        🛒 <span id="cartCount">0</span>
-    </div>
 </header>
 
 <main>
-    <h1>Курсы</h1>
 
-    <div class="courses">
-        <div class="course-card">
-            <h3>Ввод в программирование</h3>
-            <div class="price">399 ₽</div>
-            <button class="add-to-cart" data-title="Ввод в программирование" data-price="399">
-                В корзину
-            </button>
-        </div>
-
-        <div class="course-card">
-            <h3>Python с нуля</h3>
-            <div class="price">799 ₽</div>
-            <button class="add-to-cart" data-title="Python с нуля" data-price="799">
-                В корзину
-            </button>
-        </div>
-
-        <div class="course-card">
-            <h3>JavaScript с нуля</h3>
-            <div class="price">899 ₽</div>
-            <button class="add-to-cart" data-title="JavaScript с нуля" data-price="899">
-                В корзину
-            </button>
-        </div>
+<section id="home" class="hero">
+    <div class="hero-content">
+        <h1 class="main-title">ОСВОИ ИСКУССТВО <span class="neon-text">ПРОГРАММИРОВАНИЯ</span></h1>
+        <p class="subtitle">Стань частью элитного сообщества программистов</p>
+        <button class="cta-button">Начать обучение</button>
     </div>
+</section>
+
+<section id="courses" class="courses">
+<h2 class="section-title">Наши <span class="neon-text">Курсы</span></h2>
+
+<div class="courses-grid">
+
+<div class="course-card wide-card">
+    <div class="card-icon"><img src="icons/intro-programming.png"></div>
+    <h3>Ввод в программирование</h3>
+    <p>Основы программирования для новичков.</p>
+    <div class="course-price">399 ₽</div>
+    <button class="btn-details add-to-cart" data-title="Ввод в программирование" data-price="399">В корзину</button>
+</div>
+
+<div class="course-card">
+    <div class="card-icon"><img src="icons/python-basics.png"></div>
+    <h3>Основы Python</h3>
+    <p>Изучите один из самых популярных языков.</p>
+    <div class="course-price">799 ₽</div>
+    <button class="btn-details add-to-cart" data-title="Основы Python" data-price="799">В корзину</button>
+</div>
+
+<div class="course-card">
+    <div class="card-icon"><img src="icons/javascript-zero.png"></div>
+    <h3>JavaScript с нуля</h3>
+    <p>Освойте язык программирования для веба.</p>
+    <div class="course-price">899 ₽</div>
+    <button class="btn-details add-to-cart" data-title="JavaScript с нуля" data-price="899">В корзину</button>
+</div>
+
+<div class="course-card">
+    <div class="card-icon"><img src="icons/web-development.png"></div>
+    <h3>Веб-разработка</h3>
+    <p>HTML, CSS, JavaScript.</p>
+    <div class="course-price">1199 ₽</div>
+    <button class="btn-details add-to-cart" data-title="Веб-разработка" data-price="1199">В корзину</button>
+</div>
+
+<div class="course-card">
+    <div class="card-icon"><img src="icons/advanced-python.png"></div>
+    <h3>Продвинутый Python</h3>
+    <p>Фреймворки и библиотеки.</p>
+    <div class="course-price">1799 ₽</div>
+    <button class="btn-details add-to-cart" data-title="Продвинутый Python" data-price="1799">В корзину</button>
+</div>
+
+<div class="course-card">
+    <div class="card-icon"><img src="icons/fullstack-dev.png"></div>
+    <h3>Full-Stack разработчик</h3>
+    <p>Фронтенд + бэкенд.</p>
+    <div class="course-price">2800 ₽</div>
+    <button class="btn-details add-to-cart" data-title="Full-Stack разработчик" data-price="2800">В корзину</button>
+</div>
+
+</div>
+</section>
+
+<section id="contact" class="contact">
+    <h2 class="section-title">Свяжитесь с <span class="neon-text">Нами</span></h2>
+    <a href="https://t.me/ebelsrtorebot" target="_blank">@ebelstorebot</a>
+</section>
+
 </main>
 
-<!-- CART MODAL -->
-<div class="modal" id="cartModal">
+<footer class="footer">
+    <p>&copy; 2026 CODEACADEMY</p>
+</footer>
+
+</div>
+
+<!-- CART -->
+<div id="cartModal" class="modal">
     <div class="modal-content">
         <span class="close" id="closeCart">&times;</span>
         <h2>Корзина</h2>
-
         <ul id="cartItems"></ul>
-
-        <div class="total">
+        <div class="course-price">
             Итого: <span id="cartTotal">0</span> ₽
         </div>
-
-        <a href="https://t.me/muradsoq" target="_blank" class="tg-btn">
+        <a href="https://t.me/ebelsrtorebot" target="_blank" class="cta-button">
             Перейти к оплате в Telegram
         </a>
     </div>
@@ -196,13 +146,13 @@ const cartTotal = document.getElementById('cartTotal');
 const cartModal = document.getElementById('cartModal');
 
 document.querySelectorAll('.add-to-cart').forEach(btn => {
-    btn.addEventListener('click', () => {
+    btn.onclick = () => {
         cart.push({
             title: btn.dataset.title,
             price: Number(btn.dataset.price)
         });
         updateCart();
-    });
+    };
 });
 
 function updateCart() {
@@ -213,7 +163,7 @@ function updateCart() {
     cart.forEach(item => {
         total += item.price;
         cartItems.innerHTML += `
-            <li>
+            <li style="display:flex;justify-content:space-between">
                 <span>${item.title}</span>
                 <b>${item.price} ₽</b>
             </li>`;
@@ -222,13 +172,8 @@ function updateCart() {
     cartTotal.textContent = total;
 }
 
-document.getElementById('openCart').onclick = () => {
-    cartModal.style.display = 'flex';
-};
-
-document.getElementById('closeCart').onclick = () => {
-    cartModal.style.display = 'none';
-};
+document.getElementById('openCart').onclick = () => cartModal.style.display = 'flex';
+document.getElementById('closeCart').onclick = () => cartModal.style.display = 'none';
 </script>
 
 </body>
